@@ -437,12 +437,12 @@
    * Expose `page`.
    */
 
-  if ('undefined' == typeof module) {
-    window.page = page;
-  } else if ( 'function' == typeof define && define.amd ) {
+  if ( 'function' == typeof define && define.amd ) {
     define( function () { return page; });
-  } else {
+  } else if ('undefined' != typeof module) {
     module.exports = page;
+  } else {
+    window.page = page;
   }
 
 })();
