@@ -1,4 +1,3 @@
-
 ;(function(){
 
   /**
@@ -440,6 +439,8 @@
 
   if ('undefined' == typeof module) {
     window.page = page;
+  } else if ( 'function' == typeof define && define.amd ) {
+    define( function () { return page; });
   } else {
     module.exports = page;
   }
